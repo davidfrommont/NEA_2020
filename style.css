@@ -47,9 +47,15 @@
     left: 50%;
     alignment: center;
 }
+
 .animation {
     animation: null;
     display: block;
+    width: 500px;
+    height: 500px;
+    text-align: center;
+    background-color: hotpink;
+    border-radius: 25px;
 }
 @keyframes spin-animation {
     0% {

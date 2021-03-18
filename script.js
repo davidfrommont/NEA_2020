@@ -74,7 +74,7 @@ function dealCards(shuffled_deck) { ///function called in by button
 }
 
 function spin() {
-    document.getElementById('button').style.animation = 'spin-animation 0.5s infinite'
+    document.getElementById('button').style.animation = 'spin-animation 5s infinite'
 }
 
 
