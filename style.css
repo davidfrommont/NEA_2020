@@ -30,14 +30,14 @@
 
 .cardPick {
     background-color: lightgreen;
-    margin: 0%;
+    margin: 0;
     padding: 1%;
     position: fixed;
     left: 50%;
 }
 
 .winner {
-    margin: 0%;
+    margin: 0;
     padding: 1%;
     border: 1px solid lightblue;
     background-color: lightblue;
@@ -46,22 +46,4 @@
     top: 30%;
     left: 50%;
     alignment: center;
-}
-
-.animation {
-    animation: null;
-    display: block;
-    width: 500px;
-    height: 500px;
-    text-align: center;
-    background-color: hotpink;
-    border-radius: 25px;
-}
-@keyframes spin-animation {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(-359deg);
-    }
 }

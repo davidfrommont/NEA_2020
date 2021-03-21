@@ -37,43 +37,41 @@ function pageLoad(){ ///function called in when the page is loaded up
 function dealCards(shuffled_deck) { ///function called in by button
 
     function winner(winner) {///displays the winner on webpage
-        let x_winner = document.getElementById('winner');
+        let x_winner = document.getElementById('winner'); ///display the winner name and changes the styling of the box it is displayed in
         x_winner.style.border = '1px solid black';
         x_winner.style.background = 'yellow'; ///changes the box the winner's name appears in so it can actually be seen
         return document.getElementById('winner').innerHTML = winner;///passes winner name to webpage
     }
 
-    let count1 = 0;
-    let count2 = count1++;
+    let count1 = 0; ///establishing counter to be used in the block of code
     while (count1 < 30) {
-        if (shuffled_deck[count1].colour === shuffled_deck[count2].colour) {
-            if (shuffled_deck[count1].number < shuffled_deck[count2].number) {
-                playerOneDeck[count1] = shuffled_deck[count1];
-                playerOneDeck[count2] = shuffled_deck[count2];
-            } else {
-                playerTwoDeck[count1] = shuffled_deck[count1];
-                playerTwoDeck[count2] = shuffled_deck[count2];
+        let count2 = parseInt(count1 + 1); ///creating the +1 counter which changed each time it loops through
+        console.log(count1 + ' ' + count2);
+        if (shuffled_deck[count1].colour === shuffled_deck[count2].colour) { ///checks if colour match
+            if (shuffled_deck[count1].number < shuffled_deck[count2].number) { ///if player One then has the smaller number, they win and get the cards
+                playerOneDeck.push(shuffled_deck[count1]);
+                playerOneDeck.push(shuffled_deck[count2]);
+            } else { ///otherwise player 2 wins
+                playerTwoDeck.push(shuffled_deck[count1]);
+                playerTwoDeck.push(shuffled_deck[count2]);
             }
-        } else if (colours.indexOf(shuffled_deck[count1]) < colours.indexOf(shuffled_deck[count2])) {
-            playerOneDeck[count1] = shuffled_deck[count1];
-            playerOneDeck[count2] = shuffled_deck[count2];
-        } else {
-            playerTwoDeck[count1] = shuffled_deck[count1];
-            playerTwoDeck[count2] = shuffled_deck[count2];
+        } else if (colours.indexOf(shuffled_deck[count1].colour) < colours.indexOf(shuffled_deck[count2].colour)) { ///using the array the colours were generated from, it checks the positions of the matching colours
+            playerOneDeck.push(shuffled_deck[count1]); ///it can then use to work out who has the higher value colour and wins the pair
+            playerOneDeck.push(shuffled_deck[count2]);
+        } else if (colours.indexOf(shuffled_deck[count1].colour) > colours.indexOf(shuffled_deck[count2].colour)) {
+            playerTwoDeck.push(shuffled_deck[count1]);
+            playerTwoDeck.push(shuffled_deck[count2]);
         }
-        count1 += 2;
+        count1 += 2; ///the counter then steps up for the next pair of cards
     }
 
-    if (playerOneDeck.length > playerTwoDeck.length) {
+    if (playerOneDeck.length > playerTwoDeck.length) { ///checking for who has the longest deck, then passes this into another function to display the winner
         winner('Player One'); ///passing winning player into winner function
     } else {
         winner('Player Two');
     }
-    return shuffled_deck;///ending function and handing back the now empty shuffled deck
+    return shuffled_deck;///ending function and handing back the now empty shuffled deck ///returns the shuffled deck at the end
 }
 
-function spin() {
-    document.getElementById('button').style.animation = 'spin-animation 5s infinite'
-}
 
 
