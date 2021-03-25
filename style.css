@@ -36,7 +36,7 @@
     left: 50%;
 }
 
-.winner {
+.winner1 {
     margin: 0;
     padding: 1%;
     border: 1px solid lightblue;
@@ -46,4 +46,7 @@
     top: 30%;
     left: 50%;
     alignment: center;
+    display: block;
 }
+
+

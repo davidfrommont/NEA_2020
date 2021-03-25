@@ -40,7 +40,7 @@ function dealCards(shuffled_deck) { ///function called in by button
         let x_winner = document.getElementById('winner'); ///display the winner name and changes the styling of the box it is displayed in
         x_winner.style.border = '1px solid black';
         x_winner.style.background = 'yellow'; ///changes the box the winner's name appears in so it can actually be seen
-        return document.getElementById('winner').innerHTML = winner;///passes winner name to webpage
+        return document.getElementById('winner').innerText = winner;///passes winner name to webpage
     }
 
     let count1 = 0; ///establishing counter to be used in the block of code
@@ -70,6 +70,7 @@ function dealCards(shuffled_deck) { ///function called in by button
     } else {
         winner('Player Two');
     }
+
     return shuffled_deck;///ending function and handing back the now empty shuffled deck ///returns the shuffled deck at the end
 }
 
