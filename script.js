@@ -37,10 +37,26 @@ function pageLoad(){ ///function called in when the page is loaded up
 function dealCards(shuffled_deck) { ///function called in by button
 
     function winner(winner) {///displays the winner on webpage
-        let x_winner = document.getElementById('winner'); ///display the winner name and changes the styling of the box it is displayed in
+        let display = [];
+        let x_winner = document.getElementById('winner');
         x_winner.style.border = '1px solid black';
-        x_winner.style.background = 'yellow'; ///changes the box the winner's name appears in so it can actually be seen
-        return document.getElementById('winner').innerText = winner;///passes winner name to webpage
+        x_winner.style.background = 'yellow';
+        display += winner;
+        display += ' - '
+        if (winner === 'player One') {
+            for (let i = 0; i < playerOneDeck.length; i++) {
+                display += playerOneDeck[i].colour;
+                display += playerOneDeck[i].number;
+                display += ', ';
+            }
+        } else {
+            for (let i = 0; i < playerTwoDeck.length; i++) {
+                display += playerTwoDeck[i].colour;
+                display += playerTwoDeck[i].number;
+                display += ', ';
+            }
+        }
+        return document.getElementById('winner').innerText = display;
     }
 
     let count1 = 0; ///establishing counter to be used in the block of code
@@ -70,6 +86,7 @@ function dealCards(shuffled_deck) { ///function called in by button
     } else {
         winner('Player Two');
     }
+    displayWinDeck(winner);
 
     return shuffled_deck;///ending function and handing back the now empty shuffled deck ///returns the shuffled deck at the end
 }

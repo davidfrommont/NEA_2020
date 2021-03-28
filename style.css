@@ -44,9 +44,11 @@
     text-align: center;
     position: fixed;
     top: 30%;
-    left: 50%;
+    left: 30%;
     alignment: center;
+    width: 40%;
     display: block;
 }
+
 
 
